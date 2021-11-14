@@ -19,23 +19,79 @@ function getRandomSymbol() {
   return symbol[Math.floor(Math.random() * symbol.length)];
 }
 
+var lowerConfirm = function() {
+  var c = confirm("If you would like lowercase letters press ok")
+  if (c == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+var upperConfirm = function() {
+  var c = confirm("If you would like uppercase letters press ok")
+  if (c == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+var numberConfirm = function() {
+  var c = confirm("If you would like numbers press ok")
+  if (c == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+var symbolConfirm = function() {
+  var c = confirm("If you would like symbols press ok")
+  if (c == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 function generatePassword() {
-  const length = getPasswordLength();
+  var length = getPasswordLength();
+  var lowerCon= lowerConfirm();
+  var upperCon = upperConfirm();
+  var numberCon = numberConfirm();
+  var symbolCon = symbolConfirm();
+  if (lowerCon == false && upperCon == false && numberCon == false && symbolCon == false) {
+    window.alert("You must choose at least one type of character, Please try again.");
+    generatePassword();
+  }
   let password = '';
-  for (var i = 0; i < length; i++) {
+  while (password.length < length) {
     var getType = Math.floor(Math.random() * 4)
     switch (getType) {
       case 1:
+        if (lowerCon == true) {
         password += getRandomLower();
+        }
         break;
       case 2:
+        if (upperCon == true) {
         password += getRandomUpper();
+        }
         break;
       case 3:
+        if (numberCon == true) {
         password += getRandomNumber();
+        }
         break;
       case 0:
+        if (symbolCon == true) {
         password += getRandomSymbol();
+        }
         break;
       default:
         console.log("error");
@@ -63,6 +119,7 @@ var getPasswordLength = function() {
     getPasswordLength();
   }
 }
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
