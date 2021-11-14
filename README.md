@@ -7,3 +7,4 @@ Password generator using javascript. User chooses how long they would like their
 https://seene3.github.io/password-generator/
 
 ## Screenshot
+![Screenshot](Develop/img/pg-screenshot.PNG)
