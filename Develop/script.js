@@ -104,6 +104,7 @@ function generatePassword() {
   }
 }
 
+
 var getPasswordLength = function() {
   var passwordLength = "";
   var parseLength;
