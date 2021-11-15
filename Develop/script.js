@@ -65,11 +65,11 @@ function generatePassword() {
   var upperCon = upperConfirm();
   var numberCon = numberConfirm();
   var symbolCon = symbolConfirm();
-  if (lowerCon == false && upperCon == false && numberCon == false && symbolCon == false) {
-    window.alert("You must choose at least one type of character, Please try again.");
-    generatePassword();
-  }
   let password = '';
+  if (lowerCon == false && upperCon == false && numberCon == false && symbolCon == false) {
+   return password = "You must choose at least one type of character, Please try again.";
+  }
+  else {
   while (password.length < length) {
     var getType = Math.floor(Math.random() * 4)
     switch (getType) {
@@ -97,6 +97,7 @@ function generatePassword() {
         console.log("error");
         break;
     }
+  }
   }
   if (password.length === length) {
   return password;
